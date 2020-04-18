@@ -1,9 +1,18 @@
-let inputs = document.querySelectorAll('input');
+let controls = document.querySelectorAll('input');
+const image = document.querySelector('img');
+const js = document.querySelector('.hl');
 
-function handleUpdate() {
-    let index = this.dataset.sizing || "";
-    document.documentElement.style.setProperty(`--${this.name}`, this.value + index);
+controls.forEach(control => control.addEventListener('input', function(e) {
 
-}
+    let valeur = e.target.value;
+    let element = e.srcElement.name;
 
-inputs.forEach(input => input.addEventListener('input', handleUpdate));
+    if (element == "spacing") {
+        image.style.padding = valeur + "px";
+    } else if (element == "blur") {
+        image.style.filter = "blur(" + valeur + "px)";
+    } else if (element == "base") {
+        image.style.background = valeur;
+        js.style.color = valeur;
+    }
+}));
