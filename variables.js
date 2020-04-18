@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 let controls = document.querySelectorAll('input');
 const image = document.querySelector('img');
 const js = document.querySelector('.hl');
@@ -16,3 +17,14 @@ controls.forEach(control => control.addEventListener('input', function(e) {
         js.style.color = valeur;
     }
 }));
+=======
+let inputs = document.querySelectorAll('input');
+
+function handleUpdate() {
+    let index = this.dataset.sizing || "";
+    document.documentElement.style.setProperty(`--${this.name}`, this.value + index);
+
+}
+
+inputs.forEach(input => input.addEventListener('input', handleUpdate));
+>>>>>>> 32b6130... JS
